@@ -1,11 +1,11 @@
 '''
   改的对环境的类包装
 '''
-import gym
-import numpy as np
+
 SPARSE_MOUNTAIN_CAR = "SparseMountainCar-v0"
 PENDULUM = "Pendulum-v1"
 FROZENLAKE = "FrozenLake-v1"
+VEHICLE = "Vehicle"
 
 
 def make_env(env_name, max_episode_len):
@@ -14,7 +14,9 @@ def make_env(env_name, max_episode_len):
         return env
     return _thunk
 
-class Env(object):
+
+class Env:
+
     def __init__(self, env_name, max_episode_len, action_repeat = 1, seed = None):
         self.max_episode_len = max_episode_len
         self.action_repeat = action_repeat
@@ -65,18 +67,24 @@ class Env(object):
 
         if env_name == SPARSE_MOUNTAIN_CAR:
 
-            from PPO.envs.envs.mountain_car import SparseMountainCarEnv
+            from envs.envs.mountain_car import SparseMountainCarEnv
 
             return SparseMountainCarEnv()
 
         if env_name == PENDULUM:
 
-            from PPO.envs.envs.Pendulum import Pendulum
+            from envs.envs.Pendulum import Pendulum
 
             return Pendulum()
 
         if env_name == FROZENLAKE:
 
-            from PPO.envs.envs.frozen_lake import FrozenLake
+            from envs.envs.frozen_lake import FrozenLake
 
             return FrozenLake()
+
+        if env_name == VEHICLE:
+
+            from envs.envs.vehicle_env import Vehicle
+
+            return Vehicle()

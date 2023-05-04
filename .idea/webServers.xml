@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ffc709d7-4107-447d-ab22-8b06a8d896c9" name="PPO">
+        <fileTransfer accessType="SFTP" host="172.16.11.42" port="3368" sshConfigId="3ccf6635-8c04-4ca0-9afb-69f491b0edc9" sshConfig="PPO">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -7,9 +7,8 @@ def init_weights(m):
         nn.init.normal_(m.weight, mean=0., std=0.1)
         nn.init.constant_(m.bias, 0.1)
 
-
 class ActorCritic(nn.Module):
-    def __init__(self, num_inputs, num_outputs, hidden_size, continous_action_space , std=0.0):
+    def __init__(self, num_inputs, num_outputs, hidden_size, std=0.0):
         super(ActorCritic, self).__init__()
         self.critic = nn.Sequential(
             nn.Linear(num_inputs, hidden_size),
@@ -32,3 +31,4 @@ class ActorCritic(nn.Module):
         std = self.log_std.exp().expand_as(mu)
         dist = Normal(mu, std)
         return dist, value
+
